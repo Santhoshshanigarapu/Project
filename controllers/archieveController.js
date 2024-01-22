@@ -11,7 +11,7 @@ async function uploadFiles(req, res) {
 
     // Listen for archive data (optional)
     output.on('close', () => {
-      console.log(`Archive created: ${archive.pointer()} total bytes`);
+      console.log(`Archive created: ${archive.pointer()} total bytes`);// archieve pointer returns total no.of bytes written to o/p stream
       res.json({ message: 'Archive created successfully' });
     });
 
@@ -27,7 +27,7 @@ async function uploadFiles(req, res) {
 
     // Finalize the archive and write it to the output stream
     archive.pipe(output);
-    archive.finalize();
+    archive.finalize(); // it indicate no more data will be added
   } catch (err) {
     console.error('Error creating archive:', err);
     res.status(500).json({ error: 'An error occurred during archive creation.' });

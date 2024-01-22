@@ -121,8 +121,8 @@ exports.getUsers = async (req, res, next) => {
      next(error)
     }
    }
-   exports.grantAccess = function(action, resource) {
-    return async (req, res, next) => {
+   exports.grantAccess = function(action, resource) {  //action (representing the action to be performed, e.g., "read" or "write") 
+    return async (req, res, next) => {//resource (representing the resource on which the action is to be performed, e.g., "user" or "post").
      try {
       const permission = roles.can(req.user.role)[action](resource);
       if (!permission.granted) {
