@@ -10,7 +10,7 @@ const validatePassword = async (password, hashedPassword) => {
   } catch (error) {
     throw new Error('Password validation error');
   }
-};
+};//validation
 
 // Function to hash the password
 const hashPassword = async (password) => {
